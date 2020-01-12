@@ -1,3 +1,4 @@
+# encoding: utf-8
 class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
