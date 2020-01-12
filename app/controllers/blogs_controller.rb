@@ -1,7 +1,7 @@
 # encoding: utf-8
 class BlogsController < ApplicationController
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order(:id)
   end
 
   # 追記する
@@ -23,6 +23,19 @@ class BlogsController < ApplicationController
   # 定義する
   def show
     @blog = Blog.find(params[:id])
+  end
+
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to blogs_path, notice: "ブログを編集しました！"
+    else
+      render :edit
+    end
   end
 
   private
