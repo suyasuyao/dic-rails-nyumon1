@@ -15,6 +15,11 @@ class BlogsController < ApplicationController
     redirect_to new_blog_path
   end
 
+  # 定義する
+  def show
+    @blog = Blog.find(params[:id])
+  end
+
   private
 
   def blog_params
