@@ -5,7 +5,7 @@
     <th>タイトル</th>
     <th>内容</th>
   </tr>
-
+  <%= flash[:notice] %>
   <% @blogs.each do |blog| %>
   <tr>
     <td>
