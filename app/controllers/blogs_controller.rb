@@ -1,5 +1,7 @@
 # encoding: utf-8
 class BlogsController < ApplicationController
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+
   def index
     @blogs = Blog.all.order(:id)
   end
@@ -22,15 +24,12 @@ class BlogsController < ApplicationController
 
   # 定義する
   def show
-    set_blog
   end
 
   def edit
-    set_blog
   end
 
   def update
-    set_blog
     if @blog.update(blog_params)
       redirect_to blogs_path, notice: "ブログを編集しました！"
     else
